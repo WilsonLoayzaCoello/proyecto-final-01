@@ -1,27 +1,33 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { ProgressComponent } from './pages/progress/progress.component';
-import { Grafica1Component } from './pages/grafica1/grafica1.component';
-import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-import { PagesComponent } from './pages/pages.component';
 
 export const routes: Routes = [
   {
-    path: '', component: PagesComponent,
+    path: 'dashboard',
+    loadComponent: () => import('./pages/pages.component'),
     children: [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'progress', component: ProgressComponent },
-      { path: 'grafica', component: Grafica1Component },
-      { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    ]
+      {
+        path: 'progress',
+        title: 'Progress',
+        loadComponent: () => import('./pages/progress/progress.component'),
+      },
+      {
+        path: 'grafica',
+        title: 'Grafica',
+        loadComponent: () => import('./pages/grafica1/grafica1.component'),
+      },
+
+    ],
   },
-
-
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-
-
-  { path: '**', component: NopagefoundComponent }
+  {
+    path: 'register',
+    title: 'Register',
+    loadComponent: () => import('./auth/register/register.component'),
+  },
+  {
+    path: 'login',
+    title: 'Login',
+    loadComponent: () => import('./auth/login/login.component'),
+  },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '**', loadComponent: () => import('./nopagefound/nopagefound.component')},
 ];

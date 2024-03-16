@@ -7,10 +7,10 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-pages',
   standalone: true,
-  imports: [HeaderComponent, SidebarComponent, BreadcrumbsComponent, RouterOutlet],
   templateUrl: './pages.component.html',
-  styles: ``
+  styles: ``,
+  imports: [HeaderComponent, SidebarComponent, BreadcrumbsComponent, RouterOutlet]
 })
-export class PagesComponent {
-
+export default class PagesComponent {
+  year: number = new Date().getFullYear();
 }
