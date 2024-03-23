@@ -2,29 +2,25 @@
   <app-header></app-header>
   <app-sidebar></app-sidebar>
   <div class="page-wrapper">
-      <div class="container-fluid">
-          <app-breadcrumbs></app-breadcrumbs>
-          <!-- SISTEMA DE RUTAS AQUI -->
+    <div class="container-fluid">
+      <app-breadcrumbs></app-breadcrumbs>
+      <!-- SISTEMA DE RUTAS AQUI -->
+      <router-outlet />
 
-          <div class="row">
-              <div class="col-12">
-                  <div class="card">
-                      <div class="card-body">
-
-                        <router-outlet/>
-                      </div>
-                  </div>
-              </div>
+      <!-- <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body"></div>
           </div>
-          <!-- ============================================================== -->
-          <!-- footer -->
-          <!-- ============================================================== -->
-          <footer class="footer">
-              © {{ year }} Wilson Loayza Coello
-          </footer>
-          <!-- ============================================================== -->
-          <!-- End footer -->
-          <!-- ============================================================== -->
-      </div>
+        </div>
+      </div> -->
+      <!-- ============================================================== -->
+      <!-- footer -->
+      <!-- ============================================================== -->
+      <footer class="footer">© {{ year }} Wilson Loayza Coello</footer>
+      <!-- ============================================================== -->
+      <!-- End footer -->
+      <!-- ============================================================== -->
+    </div>
   </div>
 </div>

@@ -15,7 +15,11 @@ export const routes: Routes = [
         title: 'Grafica',
         loadComponent: () => import('./pages/grafica1/grafica1.component'),
       },
-
+      {
+        path: 'account-settings',
+        title: 'Account Settings',
+        loadComponent: () => import('./pages/account-settings/account-settings.component'),
+      },
     ],
   },
   {
