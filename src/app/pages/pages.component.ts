@@ -21,14 +21,12 @@ import { CustomInitFunctionsService } from '../services/custom-init-functions.se
   ],
 })
 export default class PagesComponent implements OnInit {
-
   public linkTheme: any = this.document.querySelector('#theme');
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private localStorageService: LocalStorageService,
     private customInitFunctions: CustomInitFunctionsService
   ) {}
-
 
   ngOnInit(): void {
     // customInitFunctions();

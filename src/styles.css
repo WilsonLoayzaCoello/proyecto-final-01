@@ -3,6 +3,19 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-#themecolors .selector{
+#themecolors .selector, .cursor{
   cursor: pointer;
+}
+
+#buttonDiv{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.img-avatar{
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
 }

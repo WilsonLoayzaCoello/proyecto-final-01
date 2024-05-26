@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () => import('./pages/pages.component'),
+    canActivate: [authGuard],
     children: [
       {
         path: 'progress',
@@ -18,7 +20,13 @@ export const routes: Routes = [
       {
         path: 'account-settings',
         title: 'Account Settings',
-        loadComponent: () => import('./pages/account-settings/account-settings.component'),
+        loadComponent: () =>
+          import('./pages/account-settings/account-settings.component'),
+      },
+      {
+        path: 'perfil',
+        title: 'Perfil',
+        loadComponent: () => import('./pages/perfil/perfil.component'),
       },
     ],
   },
@@ -33,5 +41,8 @@ export const routes: Routes = [
     loadComponent: () => import('./auth/login/login.component'),
   },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', loadComponent: () => import('./nopagefound/nopagefound.component')},
+  {
+    path: '**',
+    loadComponent: () => import('./nopagefound/nopagefound.component'),
+  },
 ];

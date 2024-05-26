@@ -336,22 +336,21 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <img
-              src="./assets/images/users/11.jpg"
-              alt="user"
-              class="profile-pic"
-            />
+            <img [src]="usuario?.imagenUrl" alt="user" class="profile-pic" />
           </a>
           <div class="dropdown-menu dropdown-menu-right animated fadeIn">
             <ul class="dropdown-user">
               <li>
                 <div class="dw-user-box">
                   <div class="u-img">
-                    <img src="./assets/images/users/11.jpg" alt="user" />
+                    <img [src]="usuario?.imagenUrl" alt="user" />
                   </div>
                   <div class="u-text">
-                    <h4>Wilson Loayza</h4>
-                    <p class="text-muted">2bitstechnology&#64;gmail.com</p>
+                    <h4>{{ usuario?.nombre }}</h4>
+                    <p class="text-muted">
+                      {{ usuario?.email | slice : 0 : 20 }}
+                      {{ (usuario?.email)!.length > 20 ? "..." : "" }}
+                    </p>
                     <a
                       href="pages-profile.html"
                       class="btn btn-rounded btn-danger btn-sm"
@@ -362,7 +361,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a href="#"> <i class="ti-user"></i> Mi perfil </a>
+                <a routerLink="./perfil"> <i class="ti-user"></i> Mi perfil </a>
               </li>
               <li>
                 <a href="#"> <i class="ti-wallet"></i> Mi cuenta </a>
@@ -378,7 +377,7 @@
               </li>
               <li role="separator" class="divider"></li>
               <li>
-                <a routerLink="/login">
+                <a (click)="logout()" class="cursor">
                   <!-- <i class="fa fa-power-off"></i> Cerrar Sesión -->
                   <i class="ti-close"></i> Cerrar Sesión
                 </a>
